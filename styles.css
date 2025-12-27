@@ -7,8 +7,6 @@ body {
 /* Shared container styling */
 .container {
   background: lightblue;
-  padding: 20px;
-  margin-bottom: 20px;
 
   /* Center all child divs */
   display: flex;
@@ -25,18 +23,7 @@ body {
 
 /* Horizontal stacking */
 .horizontal {
-  display: flex;
-  flex-direction: row;
   display: none; /* hidden at first */
-}
-
-.tarot {
-  height: 50vh;
-}
-.tarot img{
-  max-height: 100%;
-  max-width: 100%;
-  object-fit: contain;
 }
 
 button {
@@ -46,11 +33,6 @@ button {
 
 .reversed {
   transform: rotate(180deg);
-}
-
-#tarotImageContainer {
-  width: 50vw;
-  height: 80vh;
 }
 
 .cardContainer {
@@ -65,3 +47,39 @@ button {
   object-fit: contain;
 }
 
+@media (orientation: portrait) {
+  /* Portrait mode rules */
+  #container2 {
+    flex-direction: column;
+  }
+  #tarotImageContainer {
+    width: 50vw;
+    height: 30vh;
+  }
+}
+
+@media (orientation: landscape) {
+  /* Landscape mode rules */
+  #container2 {
+    flex-direction: row;
+  }
+  #tarotImageContainer {
+  width: 50vw;
+  height: 50vh;
+}
+}
+
+.tarot {
+  height: 50vh;
+}
+#tarotImageContainer img{
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+#tarotImageContainer {
+  display: flex;
+  justify-content: center;   /* center left–right */
+  align-items: center;       /* center top–bottom */
+}

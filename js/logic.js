@@ -52,19 +52,21 @@ function getAnswer(cardA, cardB, cardC) {
                     case "9": tarotID += "fool"; break;             
                 }
             } else {
-                switch (cardA.suit){
-                    case "10": tarotID += "Pp"; tarotSuit = "swords"; break;
-                    case "J": tarotID += "Pc"; tarotSuit = "cups"; break;
-                    case "Q": tarotID += "Pw"; tarotSuit = "wands"; break;
-                    case "K": tarotID += "Ps"; tarotSuit = "swords"; break;
+                switch (cardA.rank){
+                    case "10": tarotID += "Pp"; break;
+                    case "J": tarotID += "Pc"; break;
+                    case "Q": tarotID += "Pw"; break;
+                    case "K": tarotID += "Ps"; break;
                 }
             }
         }
     }
 
-    if (cardA.color == "red") {
+    if (((cardA.color == "red")&&(!tarotID.includes("P")))
+        ||(tarotID.includes("P")&&(cardB.suit == "clubs"))) {
         tarotID += "_r";
     }
+
     console.log("Tarot ID:", tarotID);
     tarot = (new CSVreader("tarots")).getTarotCardByID(tarotID);
     return tarot;

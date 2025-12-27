@@ -1,7 +1,7 @@
 class CSVreader {
   constructor(scriptTagId) { 
     const raw = document.getElementById(scriptTagId).textContent.trim(); this.rows = raw.split("\n").map(r => r.split(","));
-  }
+   }
 
   getCard(id) {
     // assumes card rows start at index 1 (skip header)
