@@ -1,0 +1,67 @@
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+/* Shared container styling */
+.container {
+  background: lightblue;
+  padding: 20px;
+  margin-bottom: 20px;
+
+  /* Center all child divs */
+  display: flex;
+  justify-content: center;   /* center left/right */
+  align-items: center;       /* center top/bottom */
+  gap: 10px;
+}
+
+/* Vertical stacking */
+.vertical {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Horizontal stacking */
+.horizontal {
+  display: flex;
+  flex-direction: row;
+  display: none; /* hidden at first */
+}
+
+.tarot {
+  height: 50vh;
+}
+.tarot img{
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+button {
+  padding: 12px 20px;
+  font-size: 18px;
+}
+
+.reversed {
+  transform: rotate(180deg);
+}
+
+#tarotImageContainer {
+  width: 50vw;
+  height: 80vh;
+}
+
+.cardContainer {
+  height: 20vh;
+  display: flex;
+  justify-content: center;   /* center left-right */
+  align-items: center;       /* center top-bottom */
+}
+.cardContainer img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
