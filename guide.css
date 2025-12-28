@@ -1,0 +1,19 @@
+/* Centered image wrapper */
+.centeredImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.centeredImage img {
+  max-width: 90%;
+  height: auto;
+}
+
+/* Optional: give guide pages some breathing room */
+.pageContent {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
