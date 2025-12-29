@@ -62,3 +62,12 @@ document.getElementById("showBtn").addEventListener("click", async () => {
 document.getElementById("againBtn").addEventListener("click", async () => {
     await displayNewQuestion();
 });
+
+document.getElementById("toggleCheat").addEventListener("click", async () => {
+    const cheatSheet = document.getElementById("cheatsheet");
+    if (cheatSheet.style.display === "none") {
+        cheatSheet.style.display = "flex";
+    } else {
+        cheatSheet.style.display = "none";
+    }
+});

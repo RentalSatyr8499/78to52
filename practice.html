@@ -2,12 +2,15 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>78 to 52</title>
+<title>Practice mapping the 52 playing cards to the 78 tarot cards</title>
 <link rel="stylesheet" href="practice.css">
 </head>
 <body>
 
-<nav class="topMenu"> <a href="index.html">Home</a> <a href="guide.html">Guide</a> </nav>
+<nav class="topMenu">
+  <a href="practice.html">Practice</a>
+  <a href="guide.html">Guide</a>
+</nav>
 
 <!-- Card container -->
 <div id="container1" class="container vertical">
@@ -44,9 +47,57 @@
 
 <!-- Buttons -->
 <div id="buttoncontainer" class="container vertical">
-<button id="showBtn">Show answer</button>
+<button id="showBtn">Toggle answer</button>
 <br><br>
-<button id="againBtn">Again</button>
+<button id="againBtn">Draw</button>
+</div>
+
+<div class="container vertical">
+  <h3>Do you know what Rider-Waite-Smith tarot this 3-card column maps to?</h3>
+  <p id="description">This practice tool is not meant to be used as an actual tarot reading. I think accurate tarot readings from from allowing your intuition to pull you towards one card or another, but this tool simply uses a random number generator to pick a card for you. So please if you'd actually like to do a tarot reading, use a physical deck. After all, after learning this technique, you only need a 52-card deck of playing cards to do a reading!</p>
+  <button id="toggleCheat">Toggle cheatsheet</button>
+  <div id="cheatsheet" class="container horizontal">
+    <img src="resources/images/guide/5.png" alt="5.png">
+    <script id="myCSV" type="text/csv">
+        Top card rank,Bottom cards are red,Bottom cards are black
+        A,The Magician,Temperance
+        2,The High Priestess,The Devil
+        3,The Empress,The Tower
+        4,The Emporer,The Star
+        5,The Hierophant,The Moon
+        6,The Lovers,The Sun
+        7,The Chariot,Judgement
+        8,Strength,The World
+        9,The Hermit,The Fool
+        10,Wheel of Fortune,Page of pentacles
+        J,Justice,Page of cups
+        Q,The Hanged Man,Page of wands
+        K,Death,Page of swords
+    </script>
+    <div id="csvTableContainer"></div>
+    <script>
+        function csvToTable(csvText) {
+            const rows = csvText.trim().split("\n").map(r => r.split(","));
+            const table = document.createElement("table");
+
+            rows.forEach((row, i) => {
+                const tr = document.createElement("tr");
+                row.forEach(cell => {
+                const td = document.createElement(i === 0 ? "th" : "td");
+                td.textContent = cell;
+                tr.appendChild(td);
+                });
+                table.appendChild(tr);
+            });
+
+            return table;
+        }
+
+        const csvText = document.getElementById("myCSV").textContent;
+        const table = csvToTable(csvText);
+        document.getElementById("csvTableContainer").appendChild(table);
+    </script>
+  </div>
 </div>
 
 <script src="js/classes.js"></script> 

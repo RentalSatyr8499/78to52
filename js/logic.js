@@ -1,9 +1,20 @@
+/**
+ * Maps 3 playing cards to a tarot card. Tarot cards are identified by an 
+ * ID string: for minor arcana, rank + first letter of suit (c/p/w/s); for * major arcana, the ID string is a single word. You can see the exact IDs 
+ * in the 'tarots.csv' <script> element in ../practice.html. You can see  
+ * the class declarations of the Card and Tarot objects in js/classes.js.
+ * 
+ * @param {Card} cardA - the top card.
+ * @param {Card} cardB - the middle card.
+ * @param {Card} cardC - the bottom card.
+ * @returns {Tarot} - the corresponding tarot card.
+ */
 function getAnswer(cardA, cardB, cardC) {
     tarotID = "";
 
     if (cardB.color != cardC.color) {
         tarotID += cardA.rank.toString();
-        switch (cardA.suit){
+        switch (cardB.suit){
             case "hearts":
                 tarotSuit = "cups";
                 tarotID += "c";
